@@ -1,4 +1,3 @@
-import { motion as Motion } from 'framer-motion';
 import {
   BookOpen,
   Calendar,
@@ -29,15 +28,6 @@ const recentActivity = [
   { text: 'Selamat datang di BISINDO.app! Mulai perjalanan belajarmu.', time: 'Baru saja' },
 ];
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: (index = 0) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: index * 0.1, duration: 0.5 },
-  }),
-};
-
 export default function Progress() {
   const { user } = useAuth();
   const overallProgress = 0;
@@ -51,12 +41,7 @@ export default function Progress() {
   return (
     <div className="progress-page">
       <div className="container">
-        <Motion.div
-          className="prog-header"
-          initial="hidden"
-          animate="visible"
-          variants={fadeUp}
-        >
+        <div className="prog-header">
           <div className="profile-hero">
             <div className="profile-hero-avatar">{initials}</div>
             <div className="profile-hero-copy">
@@ -69,48 +54,34 @@ export default function Progress() {
               </p>
             </div>
           </div>
-        </Motion.div>
+        </div>
 
-        <Motion.div
-          className="prog-stats-row"
-          initial="hidden"
-          animate="visible"
-          variants={{
-            hidden: {},
-            visible: { transition: { staggerChildren: 0.1 } },
-          }}
-        >
-          <Motion.div className="card prog-stat-card" variants={fadeUp}>
+        <div className="prog-stats-row">
+          <div className="card prog-stat-card">
             <div className="prog-stat-icon prog-stat-xp"><Star size={22} /></div>
             <div className="prog-stat-value">{totalXP}</div>
             <div className="prog-stat-label">Total XP</div>
-          </Motion.div>
-          <Motion.div className="card prog-stat-card" variants={fadeUp}>
+          </div>
+          <div className="card prog-stat-card">
             <div className="prog-stat-icon prog-stat-streak"><Flame size={22} /></div>
             <div className="prog-stat-value">{streak}</div>
             <div className="prog-stat-label">Hari Streak</div>
-          </Motion.div>
-          <Motion.div className="card prog-stat-card" variants={fadeUp}>
+          </div>
+          <div className="card prog-stat-card">
             <div className="prog-stat-icon prog-stat-level"><Trophy size={22} /></div>
             <div className="prog-stat-value">Lv.{level}</div>
             <div className="prog-stat-label">Level</div>
-          </Motion.div>
-          <Motion.div className="card prog-stat-card" variants={fadeUp}>
+          </div>
+          <div className="card prog-stat-card">
             <div className="prog-stat-icon prog-stat-time"><Clock size={22} /></div>
             <div className="prog-stat-value">0m</div>
             <div className="prog-stat-label">Waktu Belajar</div>
-          </Motion.div>
-        </Motion.div>
+          </div>
+        </div>
 
         <div className="prog-content">
           <div className="prog-left">
-            <Motion.div
-              className="card prog-ring-card"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeUp}
-            >
+            <div className="card prog-ring-card">
               <h3>Progress Keseluruhan</h3>
               <div className="prog-ring-wrap">
                 <svg viewBox="0 0 120 120" className="prog-ring-svg">
@@ -146,15 +117,9 @@ export default function Progress() {
                   <span className="prog-ring-label">Selesai</span>
                 </div>
               </div>
-            </Motion.div>
+            </div>
 
-            <Motion.div
-              className="card prog-modules-card"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeUp}
-            >
+            <div className="card prog-modules-card">
               <h3>Progress per Modul</h3>
               <div className="prog-modules-list">
                 {moduleProgress.map((module) => (
@@ -174,17 +139,11 @@ export default function Progress() {
                   </div>
                 ))}
               </div>
-            </Motion.div>
+            </div>
           </div>
 
           <div className="prog-right">
-            <Motion.div
-              className="card prog-achievements-card"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeUp}
-            >
+            <div className="card prog-achievements-card">
               <div className="prog-card-header">
                 <h3>Pencapaian</h3>
                 <span className="badge badge-blue">0 / {achievements.length}</span>
@@ -205,15 +164,9 @@ export default function Progress() {
                   </div>
                 ))}
               </div>
-            </Motion.div>
+            </div>
 
-            <Motion.div
-              className="card prog-activity-card"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeUp}
-            >
+            <div className="card prog-activity-card">
               <div className="prog-card-header">
                 <h3>Aktivitas Terbaru</h3>
                 <TrendingUp size={18} className="prog-trend-icon" />
@@ -231,7 +184,7 @@ export default function Progress() {
                   </div>
                 ))}
               </div>
-            </Motion.div>
+            </div>
           </div>
         </div>
       </div>

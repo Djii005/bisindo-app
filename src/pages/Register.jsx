@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import { Mail, Lock, Eye, EyeOff, UserPlus, User, Hand, Sparkles, Check, X } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import './Auth.css';
@@ -82,50 +81,36 @@ export default function Register() {
     <div className="auth-page">
       {/* Left Panel - Branding */}
       <div className="auth-brand-panel">
-        <div className="auth-brand-bg">
-          <div className="auth-brand-blob auth-blob-1"></div>
-          <div className="auth-brand-blob auth-blob-2"></div>
-        </div>
+        <div className="auth-brand-bg"></div>
         <div className="auth-brand-content">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="auth-brand-logo">
-              <Hand size={32} />
+          <div className="auth-brand-logo">
+            <Hand size={32} />
+          </div>
+          <h2 className="auth-brand-title">BISINDO.app</h2>
+          <p className="auth-brand-desc">
+            Bergabung dan mulai belajar Bahasa Isyarat Indonesia 
+            dengan cara yang menyenangkan & interaktif
+          </p>
+          <div className="auth-brand-features">
+            <div className="auth-brand-feature">
+              <Sparkles size={16} />
+              <span>100+ gerakan isyarat</span>
             </div>
-            <h2 className="auth-brand-title">BISINDO.app</h2>
-            <p className="auth-brand-desc">
-              Bergabung dan mulai belajar Bahasa Isyarat Indonesia 
-              dengan cara yang menyenangkan & interaktif
-            </p>
-            <div className="auth-brand-features">
-              <div className="auth-brand-feature">
-                <Sparkles size={16} />
-                <span>100+ gerakan isyarat</span>
-              </div>
-              <div className="auth-brand-feature">
-                <Sparkles size={16} />
-                <span>5 modul pembelajaran</span>
-              </div>
-              <div className="auth-brand-feature">
-                <Sparkles size={16} />
-                <span>Gratis selamanya</span>
-              </div>
+            <div className="auth-brand-feature">
+              <Sparkles size={16} />
+              <span>5 modul pembelajaran</span>
             </div>
-          </motion.div>
+            <div className="auth-brand-feature">
+              <Sparkles size={16} />
+              <span>Gratis selamanya</span>
+            </div>
+          </div>
         </div>
       </div>
 
       {/* Right Panel - Form */}
       <div className="auth-form-panel">
-        <motion.div
-          className="auth-form-wrapper"
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
+        <div className="auth-form-wrapper">
           <div className="auth-form-header">
             <h1 className="auth-form-title">Buat Akun 🚀</h1>
             <p className="auth-form-subtitle">
@@ -134,13 +119,9 @@ export default function Register() {
           </div>
 
           {error && (
-            <motion.div
-              className="auth-error"
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-            >
+            <div className="auth-error">
               {error}
-            </motion.div>
+            </div>
           )}
 
           <form onSubmit={handleSubmit} className="auth-form">
@@ -244,7 +225,7 @@ export default function Register() {
               Masuk di sini
             </Link>
           </p>
-        </motion.div>
+        </div>
       </div>
     </div>
   );

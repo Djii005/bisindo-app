@@ -1,26 +1,30 @@
 /* Belajar Mandiri Page Styles scoped to .self-practice-page to prevent collision */
 
 .self-practice-page {
-  padding: 2.5rem 0;
-  min-height: 100vh;
+  padding: 1rem 0 0.5rem;
+  min-height: calc(100vh - var(--navbar-height));
+  max-height: calc(100vh - var(--navbar-height));
+  overflow: hidden;
   background: radial-gradient(circle at 10% 20%, rgba(15, 23, 42, 0.98) 0%, rgba(9, 15, 30, 1) 90%);
   color: #f8fafc;
+  display: flex;
+  flex-direction: column;
 }
 
 .self-practice-page .practice-header {
-  margin-bottom: 2.5rem;
+  margin-bottom: 0.75rem;
   text-align: center;
 }
 
 .self-practice-page .practice-title {
-  font-size: 2.5rem;
+  font-size: 1.75rem;
   font-weight: 800;
   letter-spacing: -0.025em;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
 }
 
 .self-practice-page .practice-subtitle {
-  font-size: 1.125rem;
+  font-size: 0.875rem;
   color: #94a3b8;
   max-width: 36rem;
   margin: 0 auto;
@@ -30,8 +34,10 @@
 .self-practice-page .practice-grid {
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
-  gap: 2rem;
-  align-items: start;
+  gap: 1rem;
+  align-items: stretch;
+  flex: 1;
+  min-height: 0;
 }
 
 @media (max-width: 1024px) {
@@ -316,7 +322,7 @@
 
 /* Camera Controls footer */
 .self-practice-page .camera-controls {
-  padding: 1.25rem;
+  padding: 0.75rem;
   background: rgba(30, 41, 59, 0.2);
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   display: flex;
@@ -331,8 +337,7 @@
 .self-practice-page .translation-card {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  min-height: 520px;
+  gap: 0.75rem;
 }
 
 .self-practice-page .translation-header {
@@ -358,13 +363,15 @@
   background: rgba(15, 23, 42, 0.5);
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 12px;
-  padding: 1.5rem;
-  min-height: 120px;
+  padding: 1rem;
+  min-height: 60px;
+  flex: 1;
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
   gap: 0.75rem;
   box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.3);
+  overflow-y: auto;
 }
 
 .self-practice-page .placeholder-text {
