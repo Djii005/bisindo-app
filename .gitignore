@@ -1,0 +1,56 @@
+# Dependencies
+node_modules
+.venv-ml
+__pycache__
+*.pyc
+
+# Production Builds & Temp
+dist
+dist-ssr
+scratch
+.agents
+
+# Logs & Dev Output
+*.log
+logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Database & Environment Secrets
+server/*.db
+server/*.db-shm
+server/*.db-wal
+server/*.db-journal
+.env
+.env.*
+!.env.example
+
+# Thesis & Documents (Excluded from web repo)
+thesis/
+*.docx
+BISINDO_extracted.txt
+copilot-session-*.md
+daftar_konsultasi.md
+progres.md
+project-analysis-prompt.md
+
+# Large Raw Datasets & Offline Scripts
+dataset_dynamic_numbers/
+dataset_numbers/
+dataset_words/
+ml/
+scripts/
+
+# Editor & OS
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

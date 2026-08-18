@@ -1,0 +1,490 @@
+/* Belajar Mandiri Page Styles scoped to .self-practice-page to prevent collision */
+
+.self-practice-page {
+  padding: 2.5rem 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at 10% 20%, rgba(15, 23, 42, 0.98) 0%, rgba(9, 15, 30, 1) 90%);
+  color: #f8fafc;
+}
+
+.self-practice-page .practice-header {
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.self-practice-page .practice-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  margin-bottom: 0.5rem;
+}
+
+.self-practice-page .practice-subtitle {
+  font-size: 1.125rem;
+  color: #94a3b8;
+  max-width: 36rem;
+  margin: 0 auto;
+}
+
+/* Page Layout Grid */
+.self-practice-page .practice-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (max-width: 1024px) {
+  .self-practice-page .practice-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Camera Card (Big Box) */
+.self-practice-page .camera-card {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.self-practice-page .camera-view {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background-color: #020617;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.6);
+}
+
+.self-practice-page .camera-feed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleX(-1); /* Mirror camera feed */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.self-practice-page .camera-feed.visible {
+  opacity: 1;
+}
+
+.self-practice-page .camera-overlay-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleX(-1); /* Mirror overlay canvas */
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Inactive Camera Interface */
+.self-practice-page .camera-inactive {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+  color: #64748b;
+  z-index: 2;
+}
+
+.self-practice-page .camera-icon-wrap {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(30, 41, 59, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.self-practice-page .camera-inactive-text {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  margin-bottom: 0.25rem;
+}
+
+.self-practice-page .camera-inactive-hint {
+  font-size: 0.875rem;
+  max-width: 20rem;
+  line-height: 1.5;
+}
+
+/* Camera Live Interface */
+.self-practice-page .camera-status-live {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(8px);
+  padding: 0.375rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #f1f5f9;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 10;
+}
+
+.self-practice-page .live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #ef4444;
+  box-shadow: 0 0 8px #ef4444;
+  animation: pulse 1.5s infinite;
+}
+
+.self-practice-page .camera-top-badges {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  z-index: 10;
+}
+
+.self-practice-page .camera-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.375rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  backdrop-filter: blur(8px);
+}
+
+.self-practice-page .camera-badge-blue {
+  background: rgba(30, 64, 175, 0.7);
+  color: #dbeafe;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.self-practice-page .camera-badge-emerald {
+  background: rgba(6, 78, 59, 0.7);
+  color: #d1fae5;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.self-practice-page .camera-badge-amber {
+  background: rgba(120, 53, 4, 0.7);
+  color: #fef3c7;
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+/* Cooldown visual lock overlay */
+.self-practice-page .cooldown-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(2px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 15;
+}
+
+.self-practice-page .cooldown-ring {
+  width: 90px;
+  height: 90px;
+  transform: rotate(-90deg);
+}
+
+.self-practice-page .cooldown-ring-bg {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.05);
+  stroke-width: 6;
+}
+
+.self-practice-page .cooldown-ring-fill {
+  fill: none;
+  stroke: #3b82f6;
+  stroke-width: 6;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.05s linear;
+}
+
+.self-practice-page .cooldown-text {
+  position: absolute;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #3b82f6;
+  margin-top: 5px;
+}
+
+/* Detection stabilization feedback */
+.self-practice-page .prediction-feedback-overlay {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 140px;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+}
+
+.self-practice-page .pred-letter {
+  font-size: 3rem;
+  font-weight: 900;
+  line-height: 1;
+  color: #38bdf8;
+  margin-bottom: 0.5rem;
+}
+
+.self-practice-page .pred-stability-bar {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.self-practice-page .pred-stability-fill {
+  height: 100%;
+  background: #10b981;
+  border-radius: 3px;
+  transition: width 0.1s ease;
+}
+
+.self-practice-page .pred-caption {
+  font-size: 0.675rem;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+/* Auto Space Progress Overlay */
+.self-practice-page .auto-space-toast {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  color: #94a3b8;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  width: 180px;
+  z-index: 10;
+}
+
+.self-practice-page .auto-space-progress {
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.self-practice-page .auto-space-fill {
+  height: 100%;
+  background: #f59e0b;
+  width: 0;
+  transition: width 0.1s linear;
+}
+
+/* Camera Controls footer */
+.self-practice-page .camera-controls {
+  padding: 1.25rem;
+  background: rgba(30, 41, 59, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  justify-content: center;
+}
+
+.self-practice-page .camera-toggle {
+  min-width: 200px;
+}
+
+/* Box 2: Translation Card (Right Side) */
+.self-practice-page .translation-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-height: 520px;
+}
+
+.self-practice-page .translation-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding-bottom: 1rem;
+}
+
+.self-practice-page .translation-header h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.self-practice-page .translation-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Output Box for Words */
+.self-practice-page .translation-output-box {
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 1.5rem;
+  min-height: 120px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 0.75rem;
+  box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.3);
+}
+
+.self-practice-page .placeholder-text {
+  color: #475569;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Word tokens */
+.self-practice-page .sentence-composer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.self-practice-page .word-token {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%);
+  border: 1px solid rgba(56, 189, 248, 0.15);
+  color: #e2e8f0;
+  padding: 0.375rem 0.875rem;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 1.125rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  animation: scaleUp 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.self-practice-page .current-word-token {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #38bdf8;
+  padding: 0.25rem 0.5rem;
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+}
+
+.self-practice-page .cursor-blink {
+  color: #38bdf8;
+  animation: blink 1s step-end infinite;
+  margin-left: 2px;
+}
+
+/* Grammar / SPOK section removed — no longer used */
+
+/* Violet badge for detection mode indicator */
+.self-practice-page .camera-badge-violet {
+  background: rgba(139, 92, 246, 0.25);
+  color: #c4b5fd;
+  border: 1px solid rgba(139, 92, 246, 0.35);
+}
+
+/* Scrollable helper/hint words */
+.self-practice-page .dictionary-words-hint {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.self-practice-page .hint-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #475569;
+  letter-spacing: 0.05em;
+}
+
+.self-practice-page .hint-words-scroll {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  max-height: 80px;
+  overflow-y: auto;
+  padding-right: 0.25rem;
+}
+
+.self-practice-page .hint-words-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+
+.self-practice-page .hint-words-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+}
+
+.self-practice-page .hint-word {
+  font-size: 0.675rem;
+  font-weight: 700;
+  padding: 0.25rem 0.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  color: #64748b;
+  letter-spacing: 0.02em;
+}
+
+.self-practice-page .hint-word-active {
+  background: rgba(16, 185, 129, 0.12);
+  border-color: rgba(16, 185, 129, 0.3);
+  color: #6ee7b7;
+}
+
+/* Animations */
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.9); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes scaleUp {
+  from { opacity: 0; transform: scale(0.92); }
+  to { opacity: 1; transform: scale(1); }
+}
+

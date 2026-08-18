@@ -1,0 +1,317 @@
+/* ═══════════════════════════════════════════════
+   Dictionary Page Styles
+   ═══════════════════════════════════════════════ */
+
+.dictionary-page {
+    padding: var(--space-12) 0;
+}
+
+.dict-header {
+    margin-bottom: var(--space-8);
+}
+
+.dict-title {
+    font-size: var(--text-4xl);
+    font-weight: var(--font-extrabold);
+    margin-bottom: var(--space-2);
+}
+
+.dict-subtitle {
+    font-size: var(--text-lg);
+    color: var(--color-text-secondary);
+}
+
+/* ── Toolbar ──────────────────────────────── */
+.dict-toolbar {
+    display: flex;
+    gap: var(--space-4);
+    align-items: center;
+    margin-bottom: var(--space-6);
+    flex-wrap: wrap;
+}
+
+.dict-search {
+    flex: 1;
+    min-width: 250px;
+}
+
+/* ── Results ──────────────────────────────── */
+.dict-results-count {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-6);
+}
+
+/* ── Signs Grid ───────────────────────────── */
+.signs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: var(--space-4);
+}
+
+.sign-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: var(--space-4);
+    gap: var(--space-2);
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
+
+.sign-card:hover {
+    border-color: var(--blue-400);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* ── Image & Placeholder inside Card ──────────────── */
+.sign-image-wrapper {
+    width: 100%;
+    height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gray-50);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    margin-bottom: var(--space-2);
+    border: 1px solid var(--gray-100);
+    position: relative;
+    transition: background-color var(--transition-base), border-color var(--transition-base);
+}
+
+.sign-image {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    transition: transform var(--transition-spring);
+}
+
+.sign-card:hover .sign-image {
+    transform: scale(1.08);
+}
+
+.sign-card:hover .sign-image-wrapper {
+    background: var(--blue-50);
+    border-color: var(--blue-100);
+}
+
+.sign-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--gray-50), var(--gray-100));
+    position: relative;
+}
+
+.sign-placeholder-icon {
+    position: absolute;
+    top: var(--space-2);
+    right: var(--space-2);
+    color: var(--gray-300);
+}
+
+.sign-placeholder-emoji {
+    font-size: 36px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.05));
+    transition: transform var(--transition-spring);
+}
+
+.sign-card:hover .sign-placeholder-emoji {
+    transform: scale(1.15) rotate(5deg);
+}
+
+.sign-char {
+    font-size: var(--text-base);
+    font-weight: var(--font-bold);
+    font-family: var(--font-display);
+    color: var(--gray-900);
+    margin-bottom: var(--space-1);
+}
+
+/* ── Modal Overlay & Content ──────────────────────── */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(15, 23, 42, 0.6); /* Glassmorphism background */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: var(--z-modal);
+    padding: var(--space-4);
+}
+
+.modal-content {
+    background: var(--color-bg);
+    border-radius: var(--radius-2xl);
+    width: 100%;
+    max-width: 600px;
+    box-shadow: var(--shadow-2xl), 0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--gray-200);
+}
+
+.modal-close {
+    position: absolute;
+    top: var(--space-4);
+    right: var(--space-4);
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    color: var(--gray-600);
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    z-index: 10;
+}
+
+.modal-close:hover {
+    background: var(--gray-100);
+    color: var(--gray-900);
+    transform: rotate(90deg);
+}
+
+.modal-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+}
+
+.modal-media-wrapper {
+    background: var(--gray-50);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-6);
+    border-right: 1px solid var(--gray-100);
+    min-height: 250px;
+}
+
+.modal-image {
+    max-width: 100%;
+    max-height: 220px;
+    object-fit: contain;
+    border-radius: var(--radius-md);
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.05));
+}
+
+.modal-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--gray-50), var(--gray-100));
+    gap: var(--space-4);
+    min-height: 220px;
+    position: relative;
+}
+
+.modal-placeholder-icon {
+    position: absolute;
+    top: var(--space-4);
+    right: var(--space-4);
+    color: var(--gray-300);
+}
+
+.modal-placeholder-emoji {
+    font-size: 64px;
+}
+
+.modal-info {
+    padding: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: var(--space-3);
+}
+
+.modal-title {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-extrabold);
+    color: var(--gray-900);
+    font-family: var(--font-display);
+    margin: 0;
+}
+
+.modal-description {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+    margin: 0;
+}
+
+/* Responsive modal stacked style */
+@media (max-width: 640px) {
+    .modal-body {
+        grid-template-columns: 1fr;
+    }
+    
+    .modal-media-wrapper {
+        border-right: none;
+        border-bottom: 1px solid var(--gray-100);
+        min-height: 200px;
+    }
+    
+    .modal-info {
+        padding: var(--space-5);
+    }
+    
+    .modal-title {
+        font-size: var(--text-xl);
+    }
+}
+
+/* ── Empty state ──────────────────────────── */
+.dict-empty {
+    text-align: center;
+    padding: var(--space-16) 0;
+    color: var(--gray-500);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-4);
+}
+
+.dict-empty p {
+    font-size: var(--text-lg);
+}
+
+/* ── Responsive ───────────────────────────── */
+@media (max-width: 768px) {
+    .dict-title {
+        font-size: var(--text-3xl);
+    }
+
+    .dict-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .signs-grid {
+        grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+        gap: var(--space-3);
+    }
+}

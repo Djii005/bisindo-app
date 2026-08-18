@@ -1,0 +1,247 @@
+/* ═══════════════════════════════════════════════
+   Learn Page Styles
+   ═══════════════════════════════════════════════ */
+
+.learn-page {
+    padding: var(--space-12) 0;
+}
+
+/* ── Header ───────────────────────────────── */
+.learn-header {
+    margin-bottom: var(--space-10);
+}
+
+.learn-title {
+    font-size: var(--text-4xl);
+    font-weight: var(--font-extrabold);
+    margin-bottom: var(--space-2);
+}
+
+.learn-subtitle {
+    font-size: var(--text-lg);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-8);
+}
+
+/* ── Gamification Bar ─────────────────────── */
+.gamification-bar {
+    display: flex;
+    gap: var(--space-6);
+    padding: var(--space-5) var(--space-6);
+    background: white;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-sm);
+}
+
+.gam-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.gam-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-lg);
+}
+
+.gam-icon-xp {
+    background: var(--blue-100);
+    color: var(--blue-600);
+}
+
+.gam-icon-streak {
+    background: rgba(249, 115, 22, 0.1);
+    color: var(--orange-600);
+}
+
+.gam-icon-level {
+    background: rgba(245, 158, 11, 0.1);
+    color: var(--amber-600);
+}
+
+.gam-value {
+    font-size: var(--text-base);
+    font-weight: var(--font-bold);
+    color: var(--gray-900);
+}
+
+.gam-label {
+    font-size: var(--text-xs);
+    color: var(--color-text-secondary);
+}
+
+/* ── Module Grid ──────────────────────────── */
+.modules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--space-6);
+}
+
+.module-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    overflow: hidden;
+}
+
+.module-locked {
+    pointer-events: none;
+}
+
+.module-lock-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(4px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    z-index: 5;
+    color: var(--gray-500);
+    border-radius: var(--radius-xl);
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+}
+
+.module-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.module-top-meta {
+    align-items: flex-end;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.module-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-xl);
+}
+
+.module-icon-blue {
+    background: var(--blue-100);
+    color: var(--blue-600);
+}
+
+.module-icon-emerald {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--emerald-600);
+}
+
+.module-icon-amber {
+    background: rgba(245, 158, 11, 0.1);
+    color: var(--amber-600);
+}
+
+.module-icon-violet {
+    background: rgba(139, 92, 246, 0.1);
+    color: var(--violet-600);
+}
+
+.module-icon-rose {
+    background: rgba(244, 63, 94, 0.1);
+    color: var(--rose-600);
+}
+
+.module-title {
+    font-size: var(--text-xl);
+    font-weight: var(--font-bold);
+}
+
+.module-desc {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+}
+
+.module-subcopy {
+    color: var(--gray-500);
+    font-size: var(--text-xs);
+    line-height: var(--leading-relaxed);
+}
+
+.module-status {
+    align-items: center;
+    border-radius: var(--radius-full);
+    display: inline-flex;
+    font-size: 11px;
+    font-weight: var(--font-semibold);
+    gap: 6px;
+    padding: 6px 10px;
+}
+
+.module-status-ready {
+    background: rgba(37, 99, 235, 0.08);
+    color: var(--blue-700);
+}
+
+.module-status-guide {
+    background: rgba(245, 158, 11, 0.12);
+    color: var(--amber-600);
+}
+
+.module-meta {
+    display: flex;
+    gap: var(--space-4);
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+}
+
+.module-lessons,
+.module-xp {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+}
+
+.module-xp {
+    color: var(--amber-600);
+}
+
+.module-progress-section {
+    margin-top: auto;
+}
+
+.module-progress-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--text-xs);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-2);
+}
+
+.module-btn {
+    width: 100%;
+    margin-top: var(--space-3);
+}
+
+/* ── Responsive ───────────────────────────── */
+@media (max-width: 768px) {
+    .learn-title {
+        font-size: var(--text-3xl);
+    }
+
+    .gamification-bar {
+        flex-direction: column;
+        gap: var(--space-4);
+    }
+
+    .modules-grid {
+        grid-template-columns: 1fr;
+    }
+}
