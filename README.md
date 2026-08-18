@@ -59,23 +59,5 @@ Open `http://localhost:5173` in your browser.
 
 ---
 
-## ⚙️ Environment Variables
-
-### Backend (`server/.env` or Render environment)
-```env
-PORT=3001
-JWT_SECRET=your_secret_key_here
-TURSO_DATABASE_URL=libsql://bisindo-db-yourname.turso.io  # optional for cloud DB
-TURSO_AUTH_TOKEN=your_turso_auth_token                   # optional for cloud DB
-CLIENT_URL=http://localhost:5173                         # comma-separated for production
-```
-
-### Frontend (`.env` or Vercel environment)
-```env
-VITE_API_URL=http://localhost:3001/api                   # point to deployed backend in prod
-```
-
----
-
 ## 📄 License
 Distributed under the MIT License.
