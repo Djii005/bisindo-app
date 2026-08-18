@@ -1,14 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import {
     Hand, Camera, BookOpen, BookMarked, ArrowRight,
-    Sparkles, Users, Target, Zap, ChevronRight,
+    Users, ChevronRight,
     GraduationCap, Eye, Award
 } from 'lucide-react';
 import './Home.css';
 
-/* ── Animated Counter ────────────────────── */
 function Counter({ end, suffix = '', duration = 2000 }) {
     const [count, setCount] = useState(0);
     const ref = useRef(null);
@@ -41,7 +39,6 @@ function Counter({ end, suffix = '', duration = 2000 }) {
     return <span ref={ref}>{count}{suffix}</span>;
 }
 
-/* ── Feature Card ────────────────────────── */
 const features = [
     {
         icon: Camera,
@@ -63,22 +60,11 @@ const features = [
     },
 ];
 
-/* ── Steps ───────────────────────────────── */
 const steps = [
     { num: 1, icon: BookOpen, title: 'Pilih Modul', desc: 'Pilih topik yang ingin dipelajari dari koleksi modul kami.' },
     { num: 2, icon: Eye, title: 'Pelajari Gerakan', desc: 'Lihat demonstrasi gerakan isyarat yang benar.' },
     { num: 3, icon: Camera, title: 'Praktik & Feedback', desc: 'Aktifkan kamera dan dapatkan evaluasi real-time dari AI.' },
 ];
-
-/* ── Animation Variants ──────────────────── */
-const fadeUp = {
-    hidden: { opacity: 0, y: 30 },
-    visible: (i = 0) => ({
-        opacity: 1,
-        y: 0,
-        transition: { delay: i * 0.15, duration: 0.6, ease: [0.22, 1, 0.36, 1] },
-    }),
-};
 
 export default function Home() {
     return (
@@ -86,40 +72,26 @@ export default function Home() {
             {/* ── Hero ──────────────────────────── */}
             <section className="hero">
                 <div className="hero-bg">
-                    <div className="hero-blob hero-blob-1"></div>
-                    <div className="hero-blob hero-blob-2"></div>
-                    <div className="hero-blob hero-blob-3"></div>
-                    <div className="hero-grid-pattern"></div>
+                    <div className="hero-gradient"></div>
                 </div>
 
                 <div className="container hero-content">
-                    <motion.div
-                        className="hero-text"
-                        initial="hidden"
-                        animate="visible"
-                        variants={{
-                            hidden: {},
-                            visible: { transition: { staggerChildren: 0.15 } },
-                        }}
-                    >
-                        <motion.div variants={fadeUp}>
-                            <span className="hero-badge">
-                                <Sparkles size={14} />
-                                Powered by AI & Computer Vision
-                            </span>
-                        </motion.div>
+                    <div className="hero-text">
+                        <span className="hero-badge">
+                            Powered by AI & Computer Vision
+                        </span>
 
-                        <motion.h1 className="hero-title" variants={fadeUp}>
+                        <h1 className="hero-title">
                             Belajar <span className="gradient-text">BISINDO</span>
                             <br />dengan Teknologi AI
-                        </motion.h1>
+                        </h1>
 
-                        <motion.p className="hero-desc" variants={fadeUp}>
+                        <p className="hero-desc">
                             Platform pembelajaran Bahasa Isyarat Indonesia interaktif
                             dengan deteksi gerakan real-time. Belajar kapan saja, di mana saja.
-                        </motion.p>
+                        </p>
 
-                        <motion.div className="hero-actions" variants={fadeUp}>
+                        <div className="hero-actions">
                             <Link to="/belajar" className="btn btn-primary btn-lg">
                                 Mulai Belajar
                                 <ArrowRight size={20} />
@@ -127,9 +99,9 @@ export default function Home() {
                             <Link to="/kamus" className="btn btn-secondary btn-lg">
                                 Jelajahi Kamus
                             </Link>
-                        </motion.div>
+                        </div>
 
-                        <motion.div className="hero-stats-mini" variants={fadeUp}>
+                        <div className="hero-stats-mini">
                             <div className="hero-stat-mini">
                                 <GraduationCap size={16} />
                                 <span>5 Modul Pembelajaran</span>
@@ -142,15 +114,10 @@ export default function Home() {
                                 <Award size={16} />
                                 <span>Validasi PUSBISINDO</span>
                             </div>
-                        </motion.div>
-                    </motion.div>
+                        </div>
+                    </div>
 
-                    <motion.div
-                        className="hero-visual"
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.8, delay: 0.3 }}
-                    >
+                    <div className="hero-visual">
                         <div className="hero-card-stack">
                             <div className="hero-card hero-card-back">
                                 <div className="hero-card-hand">🤟</div>
@@ -166,59 +133,31 @@ export default function Home() {
                                     Akurasi 95%
                                 </div>
                             </div>
-                            <div className="hero-floating-badge hero-float-1">
-                                <Zap size={16} />
-                                <span>Real-time</span>
-                            </div>
-                            <div className="hero-floating-badge hero-float-2">
-                                <Target size={16} />
-                                <span>AI Powered</span>
-                            </div>
                         </div>
-                    </motion.div>
+                    </div>
                 </div>
             </section>
 
             {/* ── Features ─────────────────────── */}
             <section className="section features-section">
                 <div className="container">
-                    <motion.h2
-                        className="section-title"
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        variants={fadeUp}
-                    >
+                    <h2 className="section-title">
                         Fitur <span className="gradient-text">Unggulan</span>
-                    </motion.h2>
-                    <motion.p
-                        className="section-subtitle"
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        variants={fadeUp}
-                    >
+                    </h2>
+                    <p className="section-subtitle">
                         Dibangun dengan teknologi terbaru untuk pengalaman belajar terbaik
-                    </motion.p>
+                    </p>
 
                     <div className="features-grid">
-                        {features.map((f, i) => (
-                            <motion.div
-                                key={f.title}
-                                className="card feature-card"
-                                initial="hidden"
-                                whileInView="visible"
-                                viewport={{ once: true }}
-                                custom={i}
-                                variants={fadeUp}
-                            >
+                        {features.map((f) => (
+                            <div key={f.title} className="card feature-card">
                                 <div className={`feature-icon feature-icon-${f.color}`}>
                                     <f.icon size={28} />
                                 </div>
                                 <h3 className="feature-title">{f.title}</h3>
                                 <p className="feature-desc">{f.desc}</p>
                                 <ChevronRight size={18} className="feature-arrow" />
-                            </motion.div>
+                            </div>
                         ))}
                     </div>
                 </div>
@@ -227,36 +166,16 @@ export default function Home() {
             {/* ── How It Works ─────────────────── */}
             <section className="section how-section">
                 <div className="container">
-                    <motion.h2
-                        className="section-title"
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        variants={fadeUp}
-                    >
+                    <h2 className="section-title">
                         Cara <span className="gradient-text">Belajar</span>
-                    </motion.h2>
-                    <motion.p
-                        className="section-subtitle"
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        variants={fadeUp}
-                    >
+                    </h2>
+                    <p className="section-subtitle">
                         Tiga langkah sederhana untuk mulai belajar BISINDO
-                    </motion.p>
+                    </p>
 
                     <div className="steps-row">
                         {steps.map((s, i) => (
-                            <motion.div
-                                key={s.num}
-                                className="step-card"
-                                initial="hidden"
-                                whileInView="visible"
-                                viewport={{ once: true }}
-                                custom={i}
-                                variants={fadeUp}
-                            >
+                            <div key={s.num} className="step-card">
                                 <div className="step-num">{s.num}</div>
                                 <div className="step-icon-wrap">
                                     <s.icon size={28} />
@@ -264,7 +183,7 @@ export default function Home() {
                                 <h3 className="step-title">{s.title}</h3>
                                 <p className="step-desc">{s.desc}</p>
                                 {i < steps.length - 1 && <div className="step-connector" />}
-                            </motion.div>
+                            </div>
                         ))}
                     </div>
                 </div>
@@ -297,13 +216,7 @@ export default function Home() {
             {/* ── Partner / CTA ────────────────── */}
             <section className="section cta-section">
                 <div className="container">
-                    <motion.div
-                        className="cta-card"
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        variants={fadeUp}
-                    >
+                    <div className="cta-card">
                         <div className="cta-content">
                             <span className="badge badge-blue">
                                 <Users size={14} /> Mitra Resmi
@@ -321,7 +234,7 @@ export default function Home() {
                                 <ArrowRight size={20} />
                             </Link>
                         </div>
-                    </motion.div>
+                    </div>
                 </div>
             </section>
         </div>

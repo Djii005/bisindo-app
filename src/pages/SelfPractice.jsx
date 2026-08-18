@@ -5,7 +5,6 @@ import {
   Camera,
   CameraOff,
   Hand,
-  Sparkles,
   ArrowLeft,
   Trash2,
 } from 'lucide-react';
@@ -467,28 +466,6 @@ export default function SelfPractice() {
           <div className="translation-card card">
             <div className="translation-header">
               <h2>Hasil Terjemahan</h2>
-              <div className="translation-actions">
-                <button
-                  className="btn btn-ghost btn-sm"
-                  onClick={handleBackspace}
-                  title="Hapus Kata Terakhir"
-                  type="button"
-                  disabled={completedWords.length === 0}
-                >
-                  <ArrowLeft size={16} />
-                  <span>Hapus</span>
-                </button>
-                <button
-                  className="btn btn-ghost btn-rose btn-sm"
-                  onClick={handleClear}
-                  title="Reset Kalimat"
-                  type="button"
-                  disabled={completedWords.length === 0}
-                >
-                  <Trash2 size={16} />
-                  <span>Mulai Ulang</span>
-                </button>
-              </div>
             </div>
 
             <div className="translation-output-box">
@@ -505,31 +482,25 @@ export default function SelfPractice() {
               )}
             </div>
 
-            {/* Mode indicator */}
-            <div className="dictionary-words-hint">
-              <div className="hint-header">
-                <Sparkles size={14} />
-                <span>Mode Deteksi: Kata BISINDO (tanpa auto-correct)</span>
-              </div>
-              <div className="hint-words-scroll">
-                <span className="hint-word hint-word-active">Halo</span>
-                <span className="hint-word hint-word-active">Perkenalkan</span>
-                <span className="hint-word hint-word-active">Nama</span>
-                <span className="hint-word hint-word-active">Saya</span>
-                <span className="hint-word hint-word-active">Maaf</span>
-                <span className="hint-word hint-word-active">Tolong</span>
-                <span className="hint-word hint-word-active">Terima Kasih</span>
-                <span className="hint-word hint-word-active">Sama-sama</span>
-                <span className="hint-word hint-word-active">Salam Kenal</span>
-                <span className="hint-word hint-word-active">Iya</span>
-                <span className="hint-word hint-word-active">Tidak</span>
-                <span className="hint-word hint-word-active">Mau</span>
-                <span className="hint-word hint-word-active">Tidak Mau</span>
-                <span className="hint-word hint-word-active">Suka</span>
-                <span className="hint-word hint-word-active">Tidak Suka</span>
-                <span className="hint-word hint-word-active">Makan</span>
-                <span className="hint-word hint-word-active">Minum</span>
-              </div>
+            <div className="translation-bottom-actions">
+              <button
+                className="btn btn-secondary btn-lg translation-action-btn"
+                onClick={handleBackspace}
+                type="button"
+                disabled={completedWords.length === 0}
+              >
+                <ArrowLeft size={18} />
+                Hapus
+              </button>
+              <button
+                className="btn btn-ghost btn-rose btn-lg translation-action-btn"
+                onClick={handleClear}
+                type="button"
+                disabled={completedWords.length === 0}
+              >
+                <Trash2 size={18} />
+                Mulai Ulang
+              </button>
             </div>
           </div>
         </div>

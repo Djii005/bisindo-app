@@ -18,47 +18,19 @@
     z-index: 0;
 }
 
-.hero-blob {
+.hero-gradient {
     position: absolute;
-    border-radius: 50%;
-    filter: blur(80px);
-    opacity: 0.4;
-    will-change: transform;
-    transform: translateZ(0); /* Hardware accelerate to prevent scrolling lag from blur filter */
+    inset: 0;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, rgba(139, 92, 246, 0.06) 50%, rgba(16, 185, 129, 0.04) 100%);
 }
 
-.hero-blob-1 {
-    width: 500px;
-    height: 500px;
-    background: var(--blue-400);
-    top: -100px;
-    right: -100px;
-}
-
-.hero-blob-2 {
-    width: 400px;
-    height: 400px;
-    background: var(--violet-400);
-    bottom: -50px;
-    left: -100px;
-}
-
-.hero-blob-3 {
-    width: 300px;
-    height: 300px;
-    background: var(--emerald-400);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0.2;
-}
-
-.hero-grid-pattern {
+.hero-gradient::after {
+    content: '';
     position: absolute;
     inset: 0;
     background-image: radial-gradient(var(--gray-200) 1px, transparent 1px);
     background-size: 32px 32px;
-    opacity: 0.5;
+    opacity: 0.4;
 }
 
 .hero-content {

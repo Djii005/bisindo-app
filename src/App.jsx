@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
 import ScrollToTop from './components/ScrollToTop';
 import Navbar from './components/Navbar';
@@ -16,12 +16,17 @@ import Register from './pages/Register';
 import './styles/global.css';
 import './styles/components.css';
 
-export default function App() {
+const AUTH_ROUTES = ['/login', '/register'];
+
+function AppLayout() {
+  const { pathname } = useLocation();
+  const isAuthPage = AUTH_ROUTES.includes(pathname);
+
   return (
-    <AuthProvider>
+    <>
       <ScrollToTop />
-      <Navbar />
-      <main className="page">
+      {!isAuthPage && <Navbar />}
+      <main className={isAuthPage ? '' : 'page'}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
@@ -44,7 +49,15 @@ export default function App() {
           } />
         </Routes>
       </main>
-      <Footer />
+      {!isAuthPage && <Footer />}
+    </>
+  );
+}
+
+export default function App() {
+  return (
+    <AuthProvider>
+      <AppLayout />
     </AuthProvider>
   );
 }
