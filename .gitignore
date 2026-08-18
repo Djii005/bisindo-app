@@ -28,7 +28,7 @@ server/*.db-journal
 !.env.example
 
 # Thesis & Documents (Excluded from web repo)
-thesis/
+/thesis/
 *.docx
 BISINDO_extracted.txt
 copilot-session-*.md
@@ -36,12 +36,15 @@ daftar_konsultasi.md
 progres.md
 project-analysis-prompt.md
 
-# Large Raw Datasets & Offline Scripts
-dataset_dynamic_numbers/
-dataset_numbers/
-dataset_words/
-ml/
-scripts/
+# Large Raw Datasets & Offline Scripts (Root only)
+/dataset_dynamic_numbers/
+/dataset_numbers/
+/dataset_words/
+/ml/
+/scripts/
+
+# Ensure frontend runtime lib is tracked
+!src/lib/ml/
 
 # Editor & OS
 .DS_Store
